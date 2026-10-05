@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Khusus Untukmu princes tercinta dan terimutt ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #d63384;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            min-height: 50px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        #btn-mau {
+            background-color: #ff4757;
+            color: white;
+        }
+
+        #btn-mau:hover {
+            transform: scale(1.05);
+            background-color: #ff6b81;
+        }
+
+        #btn-engga {
+            background-color: #70a1ff;
+            color: white;
+            position: absolute;
+            right: 40px;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4757;
+            font-size: 20px;
+            animation: floatUp 4s linear infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="card">
+        <h1 id="title">Halo Sayang! ❤️</h1>
+        <p id="text">Aku punya pertanyaan penting buat kamu... Mau nggak tetap jalan bareng dan bikin banyak kenangan manis sama aku terus?</p>
+        <div class="btn-group" id="button-area">
+            <button id="btn-mau" onclick="terima()">Mau Banget!</button>
+            <button id="btn-engga" onmouseover="kabur()" onclick="kabur()">Engga</button>
+        </div>
+    </div>
+
+    <script>
+        // Membuat animasi hati beterbangan di latar belakang
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHearts, 300);
+
+        // Fungsi ketika tombol "Engga" disentuh atau diklik
+        function kabur() {
+            const btnEngga = document.getElementById('btn-engga');
+            const x = Math.random() * (window.innerWidth - btnEngga.offsetWidth - 40);
+            const y = Math.random() * (window.innerHeight - btnEngga.offsetHeight - 40);
+            
+            btnEngga.style.position = 'fixed';
+            btnEngga.style.left = x + 'px';
+            btnEngga.style.top = y + 'px';
+        }
+
+        // Fungsi ketika tombol "Mau Banget!" diklik
+        function terima() {
+            document.getElementById('title').innerHTML = 'Makasih Sayangnya aku!😖😽🤘🏻 ';
+            document.getElementById('text').innerHTML = 'Maafin aku ya selama kamu sama aku di bikin sedih mulu. Love you so much! ❤️✨';
+            document.getElementById('button-area').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
